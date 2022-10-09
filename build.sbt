@@ -1,12 +1,15 @@
-val scala3Version = "3.2.0"
+scalaVersion := "2.13.8"
 
-lazy val root = project
-  .in(file("."))
-  .settings(
-    name := "waveskimmer-statemachine",
-    version := "0.1.0-SNAPSHOT",
+name := "waveskimmer-statemachine"
+organization := "org.waveskimmer"
+version := "1.0-snapshot"
 
-    scalaVersion := scala3Version,
+libraryDependencies ++= Seq(
+  "org.scala-lang.modules" %% "scala-parser-combinators" % "2.1.1",
+  "com.typesafe.scala-logging" %% "scala-logging" % "3.9.5",
+  "ch.qos.logback" % "logback-classic" % "1.4.3"
+)
 
-    libraryDependencies += "org.scalameta" %% "munit" % "0.7.29" % Test
-  )
+libraryDependencies ++= Seq(
+  "org.scalatest" %% "scalatest" % "3.2.14" % "test"
+)
